@@ -95,8 +95,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.11743506, g: 0.69680554, b: 0.8584906, a: 0}
   notEnoughColor: {r: 0.9245283, g: 0.2660199, b: 0.2660199, a: 1}
-  turret: {fileID: 0}
+  turretBlueprint:
+    prefab: {fileID: 0}
+    prefabUpgraded: {fileID: 0}
+    buildEffect: {fileID: 0}
+    price: 0
+    upgradePrice: 0
+    sellPrice: 0
   positionOffset: {x: 0, y: 0.33, z: 0}
+  nodeUI: {fileID: 0}
 --- !u!65 &-990623800815628800
 BoxCollider:
   m_ObjectHideFlags: 0
