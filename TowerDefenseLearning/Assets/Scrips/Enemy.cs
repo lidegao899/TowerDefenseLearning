@@ -1,16 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
     public GameObject DeathEffect;
 
+    [Header("Unity Item")]
+    public Image healthBar;
+
     //public EnemyMovement Movement;
 
-    public float health = 100;
+    private float health = 100;
+
+    public float startHealth = 100;
 
     public int Value = 50;
+
+    public void Start()
+    {
+        health = startHealth;
+    }
 
     void EndPath()
     {
@@ -30,6 +41,8 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+
+        healthBar.fillAmount = health / startHealth ;
 
         if (health <= 0)
         {
