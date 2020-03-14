@@ -7,6 +7,10 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject ui;
 
+    public SceneFader sceneFader;
+
+    public string menuSceneName = "MainMenu";
+
     // Update is called once per frame
     void Update()
     {
@@ -33,11 +37,12 @@ public class PauseMenu : MonoBehaviour
     public void Retry()
     {
         Toggle();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        sceneFader.FadeTo(SceneManager.GetActiveScene().name);
     }
 
     public void Menu()
     {
-        Debug.Log("go to menu");
+        Toggle();
+        sceneFader.FadeTo(menuSceneName);
     }
 }
