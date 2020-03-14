@@ -1,15 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public GameObject GameOverUI;
 
     private bool gameEnd = false;
+
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (gameEnd)
         {
@@ -26,10 +24,9 @@ public class GameManager : MonoBehaviour
         {
             EndGame();
         }
-
     }
 
-    void EndGame() 
+    private void EndGame()
     {
         gameEnd = true;
         Debug.Log("Game Over");

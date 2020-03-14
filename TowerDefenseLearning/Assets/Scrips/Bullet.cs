@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
@@ -18,14 +16,14 @@ public class Bullet : MonoBehaviour
     {
         target = _target;
     }
-    // Start is called before the first frame update
-    void Start()
-    {
 
+    // Start is called before the first frame update
+    private void Start()
+    {
     }
 
-    // Update is called once per frame    
-    void Update()
+    // Update is called once per frame
+    private void Update()
     {
         if (target == null)
         {
@@ -46,7 +44,7 @@ public class Bullet : MonoBehaviour
         transform.LookAt(target);
     }
 
-    void HitTarget()
+    private void HitTarget()
     {
         GameObject effect = Instantiate(explodeEffect, transform.position, transform.rotation);
         Destroy(effect, 2f);
@@ -62,16 +60,17 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void Damage(Transform enemy)
+    private void Damage(Transform enemy)
     {
         Enemy e = enemy.GetComponent<Enemy>();
 
         if (e != null)
-        { 
+        {
             e.TakeDamage(damage);
         }
     }
-    void Explode()
+
+    private void Explode()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, exploadRadius);
 

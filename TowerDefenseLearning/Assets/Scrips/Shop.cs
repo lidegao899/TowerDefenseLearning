@@ -2,22 +2,21 @@
 
 public class Shop : MonoBehaviour
 {
-    BuildManager bulidManaget;
+    private BuildManager bulidManaget;
 
     public TurretBlueprint StandardTurret;
     public TurretBlueprint LaserTurret;
     public TurretBlueprint MissileTurret;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         bulidManaget = BuildManager.instance;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-
     }
 
     public void PurchaseStandardTurret()
@@ -31,6 +30,7 @@ public class Shop : MonoBehaviour
         Debug.Log("Missile");
         bulidManaget.SetTurretToBuild(MissileTurret);
     }
+
     public void PurchaseLaserTurret()
     {
         Debug.Log("Laser");

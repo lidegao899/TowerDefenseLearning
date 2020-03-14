@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -15,13 +13,13 @@ public class EnemyMovement : MonoBehaviour
 
     private Transform target;
 
-    void Start()
+    private void Start()
     {
         target = WayPoints.points[0];
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         Vector3 dis = target.transform.position - transform.position;
 
@@ -38,7 +36,8 @@ public class EnemyMovement : MonoBehaviour
             target = WayPoints.points[wayPointIndex];
         }
     }
-    void EndPath()
+
+    private void EndPath()
     {
         PlayerStats.Lives--;
         Destroy(gameObject);

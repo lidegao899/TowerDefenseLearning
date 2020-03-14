@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+
 public class Node : MonoBehaviour
 {
     public Color hoverColor;
@@ -14,13 +15,13 @@ public class Node : MonoBehaviour
     public TurretBlueprint turretBlueprint = null;
 
     [HideInInspector]
-    GameObject currentTurret;
+    private GameObject currentTurret;
 
     private bool isUpgraded = false;
 
     public Vector3 positionOffset;
 
-    BuildManager buildManager;
+    private BuildManager buildManager;
 
     public NodeUI nodeUI;
 
@@ -32,7 +33,8 @@ public class Node : MonoBehaviour
         buildManager = BuildManager.instance;
         turretBlueprint = null;
     }
-    void OnMouseEnter()
+
+    private void OnMouseEnter()
     {
         if (turretBlueprint != null)
         {
@@ -54,7 +56,7 @@ public class Node : MonoBehaviour
         }
     }
 
-    void OnMouseExit()
+    private void OnMouseExit()
     {
         rend.material.color = startColor;
     }
@@ -90,7 +92,7 @@ public class Node : MonoBehaviour
         return transform.position + positionOffset;
     }
 
-    void buildTurret()
+    private void buildTurret()
     {
         turretBlueprint = buildManager.GetTurretToBuild();
 
@@ -128,7 +130,6 @@ public class Node : MonoBehaviour
 
         GameObject effect = Instantiate(turretBlueprint.buildEffect, GetBuildPos(), Quaternion.identity);
 
-
         Debug.Log("turret upgraded!");
     }
 
@@ -150,4 +151,3 @@ public class Node : MonoBehaviour
         currentTurret = null;
     }
 }
-

@@ -9,11 +9,13 @@ public class Turret : MonoBehaviour
 
     [Header("Use Bullets (deafult)")]
     public float fireRate = 2f;
+
     public float fireCountDown = 1f;
     public GameObject bulletPrefab;
 
     [Header("Use Laser")]
     public bool useLaser = false;
+
     public LineRenderer lineRenderer;
     public ParticleSystem laserEffect;
     public Light laserLight;
@@ -30,13 +32,13 @@ public class Turret : MonoBehaviour
     private string enemyTag = "Enemy";
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (target == null)
         {
@@ -66,7 +68,7 @@ public class Turret : MonoBehaviour
         }
     }
 
-    void LockOnTarget()
+    private void LockOnTarget()
     {
         Vector3 direction = target.transform.position - transform.position;
 
@@ -77,7 +79,7 @@ public class Turret : MonoBehaviour
         rotatePart.transform.rotation = Quaternion.Euler(0, rotation.y, 0);
     }
 
-    void UpdateTarget()
+    private void UpdateTarget()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
 
@@ -107,6 +109,7 @@ public class Turret : MonoBehaviour
             //Debug.Log(target);
         }
     }
+
     private void UseLaser()
     {
         target.GetComponent<Enemy>().TakeDamage(damagePerSec * Time.deltaTime);
@@ -136,7 +139,7 @@ public class Turret : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, fireRange);
     }
 
-    void Shoot()
+    private void Shoot()
     {
         GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
