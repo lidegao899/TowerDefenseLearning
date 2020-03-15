@@ -73,6 +73,10 @@ public class Node : MonoBehaviour
             buildManager.SelectedNode(this);
             return;
         }
+        else
+        {
+            buildManager.DeSelectNode();
+        }
 
         if (!buildManager.CanBuild)
         {

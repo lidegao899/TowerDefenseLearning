@@ -1,8 +1,8 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 public class SceneFader : MonoBehaviour
 {
     public Image image;
@@ -19,7 +19,7 @@ public class SceneFader : MonoBehaviour
         StartCoroutine(FadeOut(strScene));
     }
 
-    IEnumerator FadeIn()
+    private IEnumerator FadeIn()
     {
         float time = 1f;
         while (time > 0)
@@ -31,7 +31,7 @@ public class SceneFader : MonoBehaviour
         }
     }
 
-    IEnumerator FadeOut(string scene)
+    private IEnumerator FadeOut(string scene)
     {
         float time = 0f;
         while (time < 1)

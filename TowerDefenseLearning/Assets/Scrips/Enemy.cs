@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
@@ -11,7 +9,6 @@ public class Enemy : MonoBehaviour
     public Image healthBar;
 
     //public EnemyMovement Movement;
-
     private float health = 100;
 
     public float startHealth = 100;
@@ -23,26 +20,28 @@ public class Enemy : MonoBehaviour
         health = startHealth;
     }
 
-    void EndPath()
+    private void EndPath()
     {
         PlayerStats.Lives--;
         Destroy(gameObject);
     }
 
-    void Die()
+    private void Die()
     {
         GameObject deathEffect = Instantiate(DeathEffect, transform.position, Quaternion.identity);
         Destroy(deathEffect, 2f);
 
         PlayerStats.Money += Value;
         Destroy(gameObject);
+
+        WaveSpawner.EnemiseAlive--;
     }
 
     public void TakeDamage(float damage)
     {
         health -= damage;
 
-        healthBar.fillAmount = health / startHealth ;
+        healthBar.fillAmount = health / startHealth;
 
         if (health <= 0)
         {
