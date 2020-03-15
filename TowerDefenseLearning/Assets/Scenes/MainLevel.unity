@@ -16326,6 +16326,27 @@ MonoBehaviour:
   spawnWaveTimeGap: 5
   countDownTime: 2
   spawnCount: 0
+  waves:
+  - enemyPrefeb: {fileID: 6175347698879453309, guid: 65b1c2684b058424daf2714a29a26c8c,
+      type: 3}
+    enemyCount: 1
+    spawnRate: 1
+  - enemyPrefeb: {fileID: 6175347698879453309, guid: 65b1c2684b058424daf2714a29a26c8c,
+      type: 3}
+    enemyCount: 3
+    spawnRate: 1
+  - enemyPrefeb: {fileID: 6175347698879453309, guid: 65b1c2684b058424daf2714a29a26c8c,
+      type: 3}
+    enemyCount: 10
+    spawnRate: 0.5
+  - enemyPrefeb: {fileID: 6175347698879453309, guid: 65b1c2684b058424daf2714a29a26c8c,
+      type: 3}
+    enemyCount: 15
+    spawnRate: 1
+  - enemyPrefeb: {fileID: 6175347698879453309, guid: 65b1c2684b058424daf2714a29a26c8c,
+      type: 3}
+    enemyCount: 20
+    spawnRate: 0.3
 --- !u!4 &1067288174
 Transform:
   m_ObjectHideFlags: 0

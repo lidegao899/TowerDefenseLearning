@@ -18,6 +18,10 @@ public class WaveSpawner : MonoBehaviour
 
     public int spawnCount = 0;
 
+    private int waveIndex = 0;
+
+    public Wave[] waves;
+
     // Update is called once per frame
     private void Update()
     {
@@ -50,14 +54,23 @@ public class WaveSpawner : MonoBehaviour
         spawnCount++;
         PlayerStats.Rounds++;
 
-        for (int i = 0; i < spawnCount; i++)
+        Wave wave = waves[waveIndex];
+
+        for (int i = 0; i < wave.enemyCount; i++)
         {
-            SpawnEnemy();
-            yield return new WaitForSeconds(0.5f);
+            SpawnEnemy(wave.enemyPrefeb);
+            yield return new WaitForSeconds(1 / wave.spawnRate);
+        }
+        waveIndex++;
+
+        if (waveIndex > waves.Length)
+        {
+            Debug.Log("you won");
+            this.enabled = false;
         }
     }
 
-    private void SpawnEnemy()
+    private void SpawnEnemy(GameObject enemyPrefeb)
     {
         Instantiate(enemyPrefeb, spawnPos.position, spawnPos.rotation);
         EnemiseAlive++;
