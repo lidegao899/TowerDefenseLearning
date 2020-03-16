@@ -16319,6 +16319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5302793a83577884aa206a19dc8736e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 1339205762}
   textCountDown: {fileID: 1425917809}
   enemyPrefeb: {fileID: 6175347698879453309, guid: 65b1c2684b058424daf2714a29a26c8c,
     type: 3}
@@ -21641,6 +21642,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameOverUI: {fileID: 86270010}
+  sceneFader: {fileID: 1998880737}
+  CurrrentSceneIndex: 2
+  NextSceneName: 
 --- !u!4 &1339205763
 Transform:
   m_ObjectHideFlags: 0

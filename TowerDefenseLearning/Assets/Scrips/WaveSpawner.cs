@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class WaveSpawner : MonoBehaviour
 {
+    public GameManager gameManager;
+
     public static int EnemiseAlive = 0;
 
     public Text textCountDown;
@@ -63,10 +65,12 @@ public class WaveSpawner : MonoBehaviour
         }
         waveIndex++;
 
-        if (waveIndex > waves.Length)
+        if (waveIndex == waves.Length)
         {
             Debug.Log("you won");
             this.enabled = false;
+
+            gameManager.WinLevel();
         }
     }
 
