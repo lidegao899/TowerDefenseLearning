@@ -55,8 +55,8 @@ public class WaveSpawner : MonoBehaviour
     {
         spawnCount++;
         PlayerStats.Rounds++;
-
         Wave wave = waves[waveIndex];
+        EnemiseAlive = wave.enemyCount;
 
         for (int i = 0; i < wave.enemyCount; i++)
         {
@@ -77,6 +77,5 @@ public class WaveSpawner : MonoBehaviour
     private void SpawnEnemy(GameObject enemyPrefeb)
     {
         Instantiate(enemyPrefeb, spawnPos.position, spawnPos.rotation);
-        EnemiseAlive++;
     }
 }
