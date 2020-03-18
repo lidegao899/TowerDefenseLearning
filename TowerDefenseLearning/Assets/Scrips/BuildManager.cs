@@ -22,11 +22,6 @@ public class BuildManager : MonoBehaviour
         instance = this;
     }
 
-    // Update is called once per frame
-    private void Update()
-    {
-    }
-
     public GameObject BuildTurret(Node node)
     {
         if (!CanBuild)

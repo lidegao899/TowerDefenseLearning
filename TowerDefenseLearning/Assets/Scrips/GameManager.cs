@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour
 {
     public GameObject GameOverUI;
 
+    public GameObject WinLevelUI;
+
     public SceneFader sceneFader;
 
     private bool gameEnd = false;
@@ -38,6 +40,7 @@ public class GameManager : MonoBehaviour
         gameEnd = true;
         Debug.Log("Game Over");
         GameOverUI.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     public void WinLevel()
@@ -55,6 +58,6 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("levelReached", CurrrentSceneIndex + 1);
         }
 
-        sceneFader.FadeTo(NextSceneName);
+        WinLevelUI.SetActive(true);
     }
 }

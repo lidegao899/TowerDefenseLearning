@@ -37,6 +37,12 @@ public class WaveSpawner : MonoBehaviour
             return;
         }
 
+        if (waveIndex == waves.Length)
+        {
+            gameManager.WinLevel();
+            this.enabled = false;
+        }
+
         if (countDownTime <= 0)
         {
             countDownTime = spawnWaveTimeGap;
